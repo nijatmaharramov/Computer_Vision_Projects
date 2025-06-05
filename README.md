@@ -1,124 +1,91 @@
 # Computer-Vision-Projects
 
-# 🥭 Fruits and Vegetables Image Recognition with Deep Learning
 
-This project is a deep learning-based image classifier that identifies fruits and vegetables using TensorFlow and Convolutional Neural Networks (CNN), with additional experiments using transfer learning via ResNet50.
+# 🧠 Image Classification Projects (Fruits & Emotions)
 
-## 📂 Dataset
+This repository contains two image classification projects using TensorFlow and CNN architectures, focusing on real-world datasets:
 
-- **Source**: [Kaggle - Fruit and Vegetable Image Recognition](https://www.kaggle.com/datasets/kritikseth/fruit-and-vegetable-image-recognition)
-- The dataset is organized into `train/`, `test/`, and `validation/` folders with subdirectories representing each class label.
+---
 
-## 🚀 Features
+## 1. 🍎 Fruit and Vegetable Recognition
 
-- Custom CNN model with convolutional and dense layers
-- Transfer learning using ResNet50 pretrained on ImageNet
-- Image preprocessing and visualization
-- Training with early stopping and learning rate scheduling
-- Single image prediction with probability bar charts
+A classification project using a custom CNN and transfer learning to recognize different types of fruits and vegetables.
 
-## 📦 Installation
+### 📦 Dataset
+- [Fruit and Vegetable Image Recognition](https://www.kaggle.com/datasets/kritikseth/fruit-and-vegetable-image-recognition)
 
-To run the project in Google Colab:
+### 🚀 Workflow
+- Dataset loading and directory organization
+- Custom CNN training
+- Transfer learning using ResNet50
+- Visualization of predictions
+- Accuracy and F1-score tracking
 
-```bash
-!pip install kaggle
-```
+### 🧠 Architectures
+- Custom CNN
+- ResNet50 (pre-trained on ImageNet)
 
-Upload your `kaggle.json` API token file and run:
+---
 
-```python
-!mkdir -p ~/.kaggle
-!cp kaggle.json ~/.kaggle/
-!chmod 600 ~/.kaggle/kaggle.json
-!kaggle datasets download -d kritikseth/fruit-and-vegetable-image-recognition
-!unzip fruit-and-vegetable-image-recognition.zip
-```
+## 2. 🙂 Emotion Recognition from Images
 
-## 🧠 Model Architectures
+A deep learning model to classify human facial emotions using multiple CNN architectures.
 
-### 1. Custom CNN
-```python
-model = tf.keras.Sequential([
-    tf.keras.layers.Input(shape=(224,224,3)),
-    tf.keras.layers.Rescaling(1./255),
-    tf.keras.layers.Conv2D(64, 7, padding='same', activation='relu'),
-    tf.keras.layers.MaxPooling2D(),
-    ...
-])
-```
+### 📦 Dataset
+- [Emotion Recognition Dataset](https://www.kaggle.com/datasets/sujaykapadnis/emotion-recognition-dataset)
 
-### 2. Transfer Learning with ResNet50
-```python
-base_model = tf.keras.applications.ResNet50(include_top=False, weights='imagenet', input_shape=(224,224,3), pooling='avg')
-base_model.trainable = False
+### 🚀 Workflow
+- Dataset cleanup (removing unwanted categories like "Ahegao")
+- Custom CNN model training
+- Transfer learning using:
+  - ResNet50
+  - Xception
+- Learning rate scheduling and model checkpointing
+- Visual analysis of predictions
 
-model2 = tf.keras.Sequential([
-    base_model,
-    tf.keras.layers.Dense(128, activation='relu'),
-    ...
-])
-```
+### 🧠 Architectures
+- Custom CNN
+- ResNet50 (with frozen base layers)
+- Xception (with frozen base layers)
 
-## 🏋️ Training
+---
 
-```python
-model.compile(
-    loss='categorical_crossentropy',
-    optimizer=tf.keras.optimizers.Adam(learning_rate=0.001),
-    metrics=['accuracy']
-)
-
-model.fit(train_data, validation_data=validation_data, epochs=10)
-```
-
-Includes:
-- Model Checkpointing
-- Early Stopping
-- Learning Rate Scheduling
-
-## 📊 Evaluation and Prediction
-
-Use the `plot_and_pred()` function to visualize predictions:
-
-```python
-plot_and_pred(model, 'path/to/your/image.jpg')
-```
-
-This shows:
-- The input image
-- Predicted class name
-- Probability distribution bar chart
-
-## 📈 Sample Results
-
-| Image | Prediction |
-|-------|------------|
-| ![apple](sample_images/red-apple.jpg) | 🍎 Apple |
-| ![watermelon](sample_images/watermelon.jpg) | 🍉 Watermelon |
-
-## 📁 Folder Structure
+## 📁 Repository Structure
 
 ```
-/content/
-    ├── train/
-    ├── test/
-    ├── validation/
-    ├── red-apple-freshleaf-dubai-uae-img01.jpg
-    └── Watermelon-cuts-24-1.jpg
+.
+├── fruit-recognition/
+│   ├── fruit_dataset_setup.ipynb
+│   └── model_training_fruit.ipynb
+│
+├── emotion-recognition/
+│   ├── emotion_dataset_setup.ipynb
+│   └── model_training_emotion.ipynb
+│
+└── README.md
 ```
 
-## 🛠 Requirements
+---
 
+## 📌 Requirements
+
+- Python 3.x
 - TensorFlow
 - NumPy
-- Pandas
 - Matplotlib
-- Kaggle API
+- Kaggle API (`kaggle.json`)
 
-Install with:
+---
 
-```bash
-pip install tensorflow numpy pandas matplotlib kaggle
-```
+## ▶️ How to Run
+
+1. Upload `kaggle.json` to your Colab environment.
+2. Run the respective notebook (`*_setup.ipynb`) to download and prepare the dataset.
+3. Train the model using the provided CNN, ResNet50, or Xception architectures.
+4. Use `plot_and_pred()` to test your model on unseen images.
+
+---
+
+
+
 
