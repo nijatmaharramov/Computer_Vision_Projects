@@ -55,12 +55,10 @@ A deep learning model to classify human facial emotions using multiple CNN archi
 ```
 .
 ├── fruit-recognition/
-│   ├── fruit_dataset_setup.ipynb
-│   └── model_training_fruit.ipynb
+│   ├── Fruit_Detection.ipynb
 │
 ├── emotion-recognition/
-│   ├── emotion_dataset_setup.ipynb
-│   └── model_training_emotion.ipynb
+│   ├── Facial_emotion_recognition.ipynb
 │
 └── README.md
 ```
