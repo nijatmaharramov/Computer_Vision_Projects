@@ -50,6 +50,33 @@ A deep learning model to classify human facial emotions using multiple CNN archi
 
 ---
 
+## 3. 😷 Face mask detection
+
+A deep learning project to detect whether a person is wearing a mask using custom CNN, transfer learning, and ResNet50 built from scratch. Includes real-time detection capability.
+
+### 📦 Dataset
+- [COVID Face Mask Detection Dataset](https://www.kaggle.com/datasets/prithwirajmitra/covid-face-mask-detection-dataset/data)
+
+### 🚀 Workflow
+- Data Preprocessing & Augmentation
+  - Resizing images to 224x224
+  - Random flips, rotations, and zoom for better generalization
+- Optimization Techniques
+  - Early Stopping
+  - Using momentum and nesterov for optimizing Custom CNN
+- Model Evaluation
+  - Accuracy, loss visualization
+  - Validation split for performance monitoring
+- Deployment
+  - Real-time mask detection using webcam feed
+ 
+### 🧠 Architectures
+- Custom CNN
+- MobileNet (Transfer Learning, with frozen base layers)
+- ResNet50 implemented from Scratch
+
+---
+
 ## 📁 Repository Structure
 
 ```
